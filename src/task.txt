@@ -22,3 +22,21 @@ https://formik.org/docs/overview
  Робота з локальним сховищем
  - Під час завантаження застосунку контакти, якщо такі є, зчитуються з локального сховища і записуються у стан.
  - Під час додавання та видалення контакту контакти зберігаються у локальне сховище.
+
+
+
+ ## Домашня робота №7
+ 1. Створення фейкового бек енду
+ а) реєстрація на сайті
+ б) генерація випадкових значень на бек енді
+ https://mockapi.io/docs
+ https://63d2f5fc4abff888341631be.mockapi.io/phonebook/
+
+ GET = https://63d2f5fc4abff888341631be.mockapi.io/phonebook/contacts
+ GET = https://63d2f5fc4abff888341631be.mockapi.io/phonebook/contacts/id
+
+ POST = https://63d2f5fc4abff888341631be.mockapi.io/phonebook/contacts
+
+ PUT = https://63d2f5fc4abff888341631be.mockapi.io/phonebook/contacts/id
+
+ DELETE = https://63d2f5fc4abff888341631be.mockapi.io/phonebook/contacts/id
