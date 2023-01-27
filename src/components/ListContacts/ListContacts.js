@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { selectContacts, selectIsLoading, selectError, selectFilter } from 'redux/selectors';
+import { selectVisibleContacts, selectIsLoading, selectError } from 'redux/selectors';
 import { Filter } from 'components/Filter';
 import { Contact } from 'components/Contact';
 import { BaseContacts, CollectionContacts } from './ListContacts.styled';
@@ -8,27 +8,14 @@ import { fetchContacts } from "../../redux/operations"
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const ListContacts = () => {
-  const contacts = useSelector(selectContacts)
-  const isLoading = useSelector(selectIsLoading)
-  const error = useSelector(selectError)
-  const filterValue = useSelector(selectFilter)
-  const dispatch = useDispatch();
+    const visibleContacts = useSelector(selectVisibleContacts)
+    const isLoading = useSelector(selectIsLoading)
+    const error = useSelector(selectError)
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch]);
-
-
-  const showContacts = () => {
-    const fullBaseContacts = contacts;
-    const findName = filterValue.toLowerCase();
-
-    return fullBaseContacts.filter(({ name }) =>
-      name.toLowerCase().includes(findName)
-        );
-    };
-
-    const visibleContacts = showContacts()
+    useEffect(() => {
+        dispatch(fetchContacts());
+    }, [dispatch]);
 
     if(isLoading && !error){
         return (
