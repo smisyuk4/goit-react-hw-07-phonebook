@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getContacts, getIsLoading, getError, getFilter } from 'redux/selectors';
+import { selectContacts, selectIsLoading, selectError, selectFilter } from 'redux/selectors';
 import { Filter } from 'components/Filter';
 import { Contact } from 'components/Contact';
 import { BaseContacts, CollectionContacts } from './ListContacts.styled';
@@ -8,10 +8,10 @@ import { fetchContacts } from "../../redux/operations"
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 export const ListContacts = () => {
-  const contacts = useSelector(getContacts)
-  const isLoading = useSelector(getIsLoading)
-  const error = useSelector(getError)
-  const filterValue = useSelector(getFilter)
+  const contacts = useSelector(selectContacts)
+  const isLoading = useSelector(selectIsLoading)
+  const error = useSelector(selectError)
+  const filterValue = useSelector(selectFilter)
   const dispatch = useDispatch();
 
   useEffect(() => {
