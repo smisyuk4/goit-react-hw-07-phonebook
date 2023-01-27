@@ -45,4 +45,8 @@ https://formik.org/docs/overview
 https://www.npmjs.com/package/axios
 npm i axios
 
+https://axios-http.com/docs/instance
+https://axios-http.com/docs/config_defaults
+https://axios-http.com/docs/post_example
+
 

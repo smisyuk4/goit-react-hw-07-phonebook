@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-// import { removeContact } from "../../redux/contactsSlice"
+import { deleteContact } from "../../redux/operations"
 import PropTypes from 'prop-types';
 import { IconContext } from 'react-icons';
 import { RiUserUnfollowFill } from 'react-icons/ri';
@@ -11,11 +11,11 @@ export const Contact = ({ contact }) => {
 
     const { id, name, number } = contact;
 
-    const handleRemoveContact = ()=>{
-        // dispatch(removeContact(id))
+    const handleDeleteContact = ()=>{
+        dispatch(deleteContact(id))
 
         Notify.success(
-            'The contact has been remove from storage',
+            'The contact has been delete from storage',
             { position: 'center-top' })
     }
 
@@ -24,7 +24,7 @@ export const Contact = ({ contact }) => {
             {name}: {number}
             <ButtonRemoveContact
                 type="button"
-                onClick={handleRemoveContact}
+                onClick={handleDeleteContact}
             >
                 <IconContext.Provider value={{ className: 'global-icon' }}>
                     <RiUserUnfollowFill />
