@@ -37,8 +37,11 @@ export const Contact = ({ contact }) => {
 
 Contact.propTypes = {
     contact: PropTypes.shape({
-        id: PropTypes.string.isRequired,
+        id: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,            
+          ]),
         name: PropTypes.string.isRequired,
-        phone: PropTypes.string.isRequired,
+        number: PropTypes.string.isRequired,
     }).isRequired,
 };
