@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { removeContact } from "../../redux/contactsSlice"
+// import { removeContact } from "../../redux/contactsSlice"
 import PropTypes from 'prop-types';
 import { IconContext } from 'react-icons';
 import { RiUserUnfollowFill } from 'react-icons/ri';
@@ -9,10 +9,10 @@ import { ItemContact, ButtonRemoveContact } from './Contact.styled';
 export const Contact = ({ contact }) => {
     const dispatch = useDispatch()
 
-    const { id, name, number } = contact;
+    const { id, name, phone } = contact;
 
     const handleRemoveContact = ()=>{
-        dispatch(removeContact(id))
+        // dispatch(removeContact(id))
 
         Notify.success(
             'The contact has been remove from storage',
@@ -21,7 +21,7 @@ export const Contact = ({ contact }) => {
 
     return (
         <ItemContact>
-            {name}: {number}
+            {name}: {phone}
             <ButtonRemoveContact
                 type="button"
                 onClick={handleRemoveContact}
@@ -39,6 +39,6 @@ Contact.propTypes = {
     contact: PropTypes.shape({
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
-        number: PropTypes.string.isRequired,
+        phone: PropTypes.string.isRequired,
     }).isRequired,
 };

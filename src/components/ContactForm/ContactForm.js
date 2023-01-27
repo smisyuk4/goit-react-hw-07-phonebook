@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { addContact } from "../../redux/contactsSlice"
+// import { addContact } from "../../redux/contactsSlice"
 import { getContacts } from 'redux/selectors';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -53,7 +53,7 @@ export const ContactForm = () => {
         // check uniq contact
         if (!checkUniq(name)) {
             //send data to store
-            dispatch(addContact(newContact));
+            // dispatch(addContact(newContact));
             Notify.success('The contact has been sent to storage', {
                 position: 'center-top',
             });
