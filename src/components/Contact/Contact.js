@@ -9,7 +9,7 @@ import { ItemContact, ButtonRemoveContact } from './Contact.styled';
 export const Contact = ({ contact }) => {
     const dispatch = useDispatch()
 
-    const { id, name, phone } = contact;
+    const { id, name, number } = contact;
 
     const handleRemoveContact = ()=>{
         // dispatch(removeContact(id))
@@ -21,7 +21,7 @@ export const Contact = ({ contact }) => {
 
     return (
         <ItemContact>
-            {name}: {phone}
+            {name}: {number}
             <ButtonRemoveContact
                 type="button"
                 onClick={handleRemoveContact}

@@ -1,10 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
-// import { addContact } from "../../redux/contactsSlice"
+import { addContact } from "../../redux/operations"
 import { getContacts } from 'redux/selectors';
 import { Formik, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 
-import { nanoid } from 'nanoid';
 import { Report } from 'notiflix/build/notiflix-report-aio';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { IconContext } from 'react-icons';
@@ -46,14 +45,13 @@ export const ContactForm = () => {
     const dispatch = useDispatch();
     const contacts = useSelector(getContacts)
 
-    const sendContact = ({ name, number }, { resetForm }) => {
-        const contactId = nanoid();
-        const newContact = { name, number, id: contactId };
+    const sendContact = ({ name, number }, { resetForm }) => {       
+        const newContact = { name, number };
 
         // check uniq contact
         if (!checkUniq(name)) {
             //send data to store
-            // dispatch(addContact(newContact));
+            dispatch(addContact(newContact));
             Notify.success('The contact has been sent to storage', {
                 position: 'center-top',
             });
